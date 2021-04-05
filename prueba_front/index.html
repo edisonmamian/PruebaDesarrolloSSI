@@ -363,6 +363,32 @@
                       <p>{{messageCreateProperty}}</p>
                     </form>
                  </div>
+
+                 <div class="Home_endpoint__3IV_8 Home_code__axx2Y">
+                    <div class="Home_method__3uimR">PUT / DELETE</div>
+                    <div>/properties</div>
+                 </div>
+                 <div>
+                    <p>Select a property: </p>
+                     <select class="form-control" name="transactions" id="slectProperty" v-on:change="getProperty()">
+                       <option>Please select a property</option>
+                     </select>
+                 </div>
+                 <div>
+                    <form>
+                      <p>slug  <input type="text" id="slugProperty" required></p>
+                      <p>image  <input type="text" id="imageProperty" required></p>
+                      <p>price  <input type="text" id="priceProperty" required></p>
+                      <p>city<select class="form-control" name="cityP" id="cityProperty"></p>
+                      <p>baths <input type="text" id="bathsProperty" required></p>
+                      <p>beds <input type="text" id="bedsProperty" required></p>
+                      <p>sqft <input type="text" id="sqftProperty" required></p>
+                      <p>category<select class="form-control" name="categoryP" id="categoryProperty"></p>
+                      <p> <input type="submit" value="update" v-on:click="postProperties()"></p>
+                      <p> <input type="submit" value="delete" v-on:click="deleteProperty()"></p>
+                      <p>{{messageProperty}}</p>
+                    </form>
+                 </div>
               </div>
                <div id="reviews" >
                   <h1>Reviews</h1>

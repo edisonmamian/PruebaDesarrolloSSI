@@ -19,7 +19,8 @@ var app = new Vue ({
       propertyTypesList : [],
       messageCreateTransaction: '',
       messageTransaction: '',
-      messageCreateProperty: ''
+      messageCreateProperty: '',
+      messageProperty: ''
   },
   mounted: function(){
     this.onloadReviews();
@@ -260,9 +261,16 @@ var app = new Vue ({
           this.onloadCategories();
           var $selectCity = $('#cityPropertyCreate');
           var $selectCategory = $('#categoryPropertyCreate');
+          var $slectProperty = $('#slectProperty');
 
           $("#cityPropertyCreate").empty();
           $("#categoryPropertyCreate").empty();
+
+          $.each(data, function(id, slug){
+            $slectProperty.append(
+              '<option value=' + slug.id + '>' + slug.title + '</option>'
+            );
+          });
 
           $.each(this.cities, function(id, slug){
             $selectCity.append(
@@ -318,6 +326,42 @@ var app = new Vue ({
           this.messageCreateProperty = data.message;
           this.onloadTransactions();
         });
+    },
+
+    getProperty: function (){
+      var id = document.getElementById("slectProperty").value;
+      var urlproperties = this.url + 'properties/' + id;
+      fetch(urlproperties,{
+        method: 'GET',
+        headers:{
+            'Content-Type': 'application/json'
+        }
+      }).then(res => res.json())
+      .catch(error => console.error('Error:', error))
+      .then(data => {
+          document.getElementById("slugTransaction").value = data["slug"];
+
+          var $selectPropertyTypes = $('#propertyTypesTransaction');
+          $.each(data["propertyTypes"], function(id, slug){
+              //document.getElementById("propertyType"+slug.id).selected = true;
+          });
+      });
+    },
+
+    deleteProperty: function(){
+      var id = document.getElementById("slectProperty").value;
+      var urlproperties = this.url + 'properties/' + id;
+      fetch(urlproperties,{
+        method: 'DELETE',
+        headers:{
+            'Content-Type': 'application/json'
+        }
+      }).then(res => res.json())
+      .catch(error => console.error('Error:', error))
+      .then(data=>{
+        this.messageProperty = data.message;
+        this.onloadProperties();
+      })
     }
   }
 });
