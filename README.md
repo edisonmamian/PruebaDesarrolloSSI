@@ -1,12 +1,19 @@
 # Prueba Coordinador de desarrollo SSI
 
-_Prueba de desarrollo realizada con django api rest framwork y vue js_
+Prueba de desarrollo realizada con django api rest framwork y vue js
 
 ## Back End
 
-_Fue realizado en lenguaje python con el django api rest framewor. Para su ejecución por favor siga los siguientes pasos_
+Fue realizado en lenguaje python con el django api rest framewor. Para su ejecución por favor siga los siguientes pasos
 
+### Pre-requisitos
 
-_ 1. Dirijase a la carpeta PruebaBackEnd._
-_ 2. En consola ejecute el siguiente comando para instalar las librerias correspondientes **pip install -r requeriments.txt**
-_ 3. En la consola ejecute el siguiente comando para migrar los modelos_
+ 1. Python 3 (https://www.python.org/downloads/) 
+ 2. Pip  (https://pypi.org/project/pip/)
+
+### Ejecución servicos.
+
+ 1. Dirijase a la carpeta PruebaBackEnd.
+ 2. En consola ejecute el siguiente comando para instalar las librerias correspondientes **pip install -r requeriments.txt**
+ 3. En la consola ejecute el siguiente comando para migrar los modelos **python manage.py makemigrations** y **python manager.py migrate**
+ 4. En la consola ejecute el siguiente comando iniciar el servidor **python manage.py runserver**
