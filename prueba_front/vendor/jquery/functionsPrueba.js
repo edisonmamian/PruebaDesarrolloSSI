@@ -27,6 +27,15 @@ var app = new Vue ({
     this.onloadTransactions();
     this.onloadStates();
     this.onloadProperties();
+    this.onloadPropertyTypes();
+    this.getTransaction();
+    this.postTransactions();
+    this.deleteTransaction();
+    this.putTransaction();
+    this.onloadCities();
+    this.onloadCategories();
+    this.postProperties();
+    this.getProperty();
   },
   methods: {
     onloadReviews: function () {
