@@ -261,10 +261,14 @@ var app = new Vue ({
           this.onloadCategories();
           var $selectCity = $('#cityPropertyCreate');
           var $selectCategory = $('#categoryPropertyCreate');
+          var $selectCityp = $('#cityProperty');
+          var $selectCategoryp = $('#categoryProperty');
           var $slectProperty = $('#slectProperty');
 
           $("#cityPropertyCreate").empty();
           $("#categoryPropertyCreate").empty();
+          $('#cityProperty').empty();
+          $('#categoryProperty').empty();
 
           $.each(data, function(id, slug){
             $slectProperty.append(
@@ -276,10 +280,16 @@ var app = new Vue ({
             $selectCity.append(
               '<option value=' + slug.id + '>' + slug.slug + '</option>'
             );
+            $selectCityp.append(
+              '<option value=' + slug.id + '>' + slug.slug + '</option>'
+            );
           });
 
           $.each(this.properties, function(id, slug){
             $selectCategory.append(
+              '<option value=' + slug.id + '>' + slug.slug + '</option>'
+            );
+            $selectCategoryp.append(
               '<option value=' + slug.id + '>' + slug.slug + '</option>'
             );
           });
@@ -287,7 +297,7 @@ var app = new Vue ({
     },
 
     postProperties: function(){
-      var slug = document.getElementById("slugTransactionCreate").value;
+      var title = document.getElementById("slugTransactionCreate").value;
       var image = document.getElementById("imagePropertyCreate").value;
       var price = document.getElementById("pricePropertyCreate").value;
       var city = $('#cityPropertyCreate').val();
@@ -304,7 +314,7 @@ var app = new Vue ({
       };
       var urlproperties = this.url + 'properties/';
       var data = {
-        slug: slug,
+        title: title,
         image: propertyTypesInt,
         price: price,
         city: city_int,
@@ -339,12 +349,12 @@ var app = new Vue ({
       }).then(res => res.json())
       .catch(error => console.error('Error:', error))
       .then(data => {
-          document.getElementById("slugTransaction").value = data["slug"];
-
-          var $selectPropertyTypes = $('#propertyTypesTransaction');
-          $.each(data["propertyTypes"], function(id, slug){
-              //document.getElementById("propertyType"+slug.id).selected = true;
-          });
+        var title = document.getElementById("slugTransactionCreate").value = data['title'];
+        var image = document.getElementById("imagePropertyCreate").value= data['image'];
+        var price = document.getElementById("pricePropertyCreate").value= data['price'];
+        var baths = document.getElementById("bathsPropertyCreate").value= data['baths'];
+        var beds = document.getElementById("bedsPropertyCreate").value= data['beds'];
+        var sqrft = document.getElementById("sqftPropertyCreate").value= data['sqrft'];
       });
     },
 
