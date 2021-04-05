@@ -261,7 +261,8 @@
                       <p>slug  <input type="text" id="slugTransaction"></p>
                       <p>Property types <select  id="propertyTypesTransaction" multiple></select></p>
                       <p> <input type="submit" value="update"></p>
-                      <p> <input type="submit" value="delete"></p>
+                      <p> <input type="submit" value="delete" v-on:click="deleteTransaction()"></p>
+                      <p>{{messageTransaction}}</p>
                     </form>
                  </div>
               </div>

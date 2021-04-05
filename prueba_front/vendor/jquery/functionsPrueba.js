@@ -17,7 +17,8 @@ var app = new Vue ({
       propertiesStatus: '',
       url: 'http://127.0.0.1:8000/',
       propertyTypesList : [],
-      messageCreateTransaction: ''
+      messageCreateTransaction: '',
+      messageTransaction: ''
   },
   mounted: function(){
     this.onloadReviews();
@@ -83,6 +84,11 @@ var app = new Vue ({
           var $selectTransactions = $('#slectTransactions');
           var $selectTransactionsCreate = $('#propertyTypesTransactionCreate');
           var $selectPropertyTypes = $('#propertyTypesTransaction');
+
+          $("#slectTransactions").empty();
+          $("#propertyTypesTransactionCreate").empty();
+          $("#propertyTypesTransaction").empty();
+
           this.onloadPropertyTypes();
           $.each(data, function(id, slug){
             $selectTransactions.append(
@@ -148,12 +154,27 @@ var app = new Vue ({
         .catch(error => console.error('Error:', error))
         .then(data => {
           this.messageCreateTransaction = data.message;
-          this.getTransaction();
+          this.onloadTransactions();
         });
 
     },
 
+    deleteTransaction: function(){
+      var id = document.getElementById("slectTransactions").value;
+      var urltransactions = this.url + 'transactions/' + id;
 
+      fetch(urltransactions,{
+        method: 'DELETE',
+        headers:{
+            'Content-Type': 'application/json'
+        }
+      }).then(res => res.json())
+      .catch(error => console.error('Error:', error))
+      .then(data=>{
+        this.messageTransaction = data.message;
+        this.onloadTransactions();
+      })
+    },
 
     onloadStates: function (){
       var urlstates = this.url + 'states/';
