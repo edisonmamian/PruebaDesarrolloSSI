@@ -1,141 +1,409 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)https://frontend-test-api.vercel.app/#states -->
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="">
-        <meta name="author" content="">
-        
-        <title>Rock Paper Scissors Lizard Spock</title>
-        <!-- Imports -->
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta name="viewport" content="width=device-width">
+      <title>GrupoSSI Prueba Coordinador de Desarrollo</title>
+      <meta name="next-head-count" content="3">
+      <link rel="preload" href="./vendor/styles/estilosPrueba.css" as="style">
+      <link rel="stylesheet" href="./vendor/styles/estilosPrueba.css" data-n-p="">
+      <noscript data-n-css=""></noscript>
+      <script src="chrome-extension://mooikfkahbdckldjjndioackbalphokd/assets/prompt.js"></script>
 
-        <!-- Bootstrap core CSS -->
-        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        
-        <!-- Style -->
-        <link href="vendor/styles/styleGame.css" rel="stylesheet">
-        
-        <!-- Fontawesome -->
-        <script src="https://kit.fontawesome.com/eb7d40bb21.js"></script>
-          
-        <!-- Vue -->
-        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-
-    </head>
-    <body>
-        
-        <div id="app">
-    
-            <!-- Navigation -->
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
-                <div class="container">
-                <a class="navbar-brand" href="#">Rock Paper Scissors Lizard Spock</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" v-on:click="endGame()">Reset Game</a>
-                    </li>
-                    </ul>
-                </div>
-                </div>
-            </nav>
-        
-            <!-- Page Content -->
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm">
-                        <h3>Points</h3> 
-                        <br>
-                    </div>
-                </div>
-                <!-- Game's Counter -->
-                <div class="row">
-                    <div class="col-sm">
-                    <h5>Computer: {{pointsComputer}}</h5> 
-                    </div>
-                    <div class="col-sm">
-                    <h5>Player: {{pointsPlayer}}</h5>
-                    <br>
-                    </div>
-                </div>
-                <!-- Computer's options -->
-                <div class="row justify-content-center">
-                    <div class="col-3">
-                      <h5>Computer</h5> 
-                      <i v-bind:class="iconComputer"></i>
-                      <p class="icon-option-name">
-                          <span>      
-                            {{ nameIconComputer }}
-                          </span>
-                      </p>
-                      <br>
-                    </div>
-                    <div class="col-2">
-                        <h5>Winner:</h5> 
-                        <p class="icon-option-name">
-                            <span>      
-                              {{ winner }}
-                            </span>
-                        </p>
-                        <br>
-                      </div>
-                </div>
-                <!-- Player's Option -->
-                <div class="row">
-                    <div class="col-sm">
-                      <h1>Choose:</h1>
-                      </div>
-                </div>
-                <div class="row">
-                <div class="col-sm">
-                    <a v-on:click="turn(options.rock)">
-                    <i class="icon-option far fa-hand-rock"></i>
-                    <p class="icon-option-name">
-                        <span>Rock</span>
-                    </p>
-                    </a>
-                    </div>
-                    <div class="col-sm">
-                    <a v-on:click="turn(options.paper)">
-                        <i class="icon-option far fa-hand-paper"></i>
-                        <p class="icon-option-name">
-                            <span>Paper</span>
-                        </p>
-                    </a>
-                    </div>
-                    <div class="col-sm">
-                    <a v-on:click="turn(options.scissors)">
-                        <i class="icon-option far fa-hand-scissors"></i>
-                        <p class="icon-option-name">
-                            <span>Scissors</span>
-                        </p>
-                    </a>
-                    </div>
-                    <div class="col-sm">
-                    <a v-on:click="turn(options.lizard)">
-                        <i class="icon-option far fa-hand-lizard"></i>
-                        <p class="icon-option-name">
-                            <span>Lizard</span>
-                        </p>
-                    </a>
-                    </div>
-                    <div class="col-sm">
-                    <a v-on:click="turn(options.spock)">
-                        <i class="icon-option far fa-hand-spock"></i>
-                        <p class="icon-option-name">
-                            <span>Spock</span>
-                        </p>
-                    </a>
-                    </div>
-                </div>
+      <!-- Vue -->
+      <script src="./vendor/vue/vue.js"></script>
+   </head>
+   <body>
+      <div id="app">
+         <main class="Home_main__1x8gC">
+            <div class="Home_menu__3wuDZ">
+               <h1>Endpoints</h1>
+               <nav>
+                  <ul>
+                     <li><a href="#states">States</a></li>
+                     <li><a href="#cities">Cities</a></li>
+                     <li><a href="#categories">Categories</a></li>
+                     <li><a href="#propertyTypes">Property types</a></li>
+                     <li><a href="#transactions">Transactions</a></li>
+                     <li><a href="#properties">Properties</a></li>
+                     <li><a href="#reviews">Reviews</a></li>
+                  </ul>
+               </nav>
             </div>
+            <div class="Home_docs__15Prz">
+              <div id="states">
+                 <h1>States</h1>
+                 <div class="Home_endpoint__3IV_8 Home_code__axx2Y">
+                    <div class="Home_method__3uimR">GET</div>
+                    <div>/states</div>
+                 </div>
+                 <div class="Home_params__1o4Xr">
+                    <h2>Parameters</h2>
+                    <table>
+                       <thead>
+                          <tr>
+                             <th>Name</th>
+                             <th>Type</th>
+                             <th>In</th>
+                             <th>Description</th>
+                          </tr>
+                       </thead>
+                       <tbody>
+                         <tr>
+                            <td>slug</td>
+                            <td>string</td>
+                            <td>query</td>
+                            <td>is the name of the state</td>
+                         </tr>
+                       </tbody>
+                    </table>
+                 </div>
+                 <div>
+                    <h2>Response</h2>
+                    <div class="Home_code__axx2Y">Status: 200 OK</div>
+                    <div class="Home_code__axx2Y">
+                       <pre>
+                         {{states}}
+                       </pre>
+                    </div>
+                 </div>
+              </div>
+              <div id="cities">
+                 <h1>Cities</h1>
+                 <div class="Home_endpoint__3IV_8 Home_code__axx2Y">
+                    <div class="Home_method__3uimR">GET</div>
+                    <div>/cities</div>
+                 </div>
+                 <div class="Home_params__1o4Xr">
+                    <h2>Parameters</h2>
+                    <table>
+                       <thead>
+                          <tr>
+                             <th>Name</th>
+                             <th>Type</th>
+                             <th>In</th>
+                             <th>Description</th>
+                          </tr>
+                       </thead>
+                       <tbody>
+                         <tr>
+                            <td>slug</td>
+                            <td>string</td>
+                            <td>query</td>
+                            <td>is the name of the city</td>
+                         </tr>
+                         <tr>
+                            <td>zip</td>
+                            <td>string</td>
+                            <td>query</td>
+                            <td>is the zip code of the city</td>
+                         </tr>
+                         <tr>
+                            <td>slug</td>
+                            <td>number</td>
+                            <td>query</td>
+                            <td>is the id of the state in which the city is located</td>
+                         </tr>
+                       </tbody>
+                    </table>
+                 </div>
+                 <div>
+                    <h2>Response</h2>
+                    <div class="Home_code__axx2Y">Status: 200 OK</div>
+                    <div class="Home_code__axx2Y">
+                       <pre>
+                         {{cities}}
+                       </pre>
+                    </div>
+                 </div>
+              </div>
+              <div id="categories">
+                 <h1>Categories</h1>
+                 <div class="Home_endpoint__3IV_8 Home_code__axx2Y">
+                    <div class="Home_method__3uimR">GET</div>
+                    <div>/categories</div>
+                 </div>
+                 <div class="Home_params__1o4Xr">
+                    <h2>Parameters</h2>
+                    <table>
+                       <thead>
+                          <tr>
+                             <th>Name</th>
+                             <th>Type</th>
+                             <th>In</th>
+                             <th>Description</th>
+                          </tr>
+                       </thead>
+                       <tbody>
+                         <tr>
+                            <td>slug</td>
+                            <td>string</td>
+                            <td>query</td>
+                            <td>describes the category</td>
+                         </tr>
+                       </tbody>
+                    </table>
+                 </div>
+                 <div>
+                    <h2>Response</h2>
+                    <div class="Home_code__axx2Y">Status: 200 OK</div>
+                    <div class="Home_code__axx2Y">
+                       <pre>
+                         {{categories}}
+                       </pre>
+                    </div>
+                 </div>
+              </div>
+              <div id="propertyTypes">
+                 <h1>Property types</h1>
+                 <div class="Home_endpoint__3IV_8 Home_code__axx2Y">
+                    <div class="Home_method__3uimR">GET</div>
+                    <div>/propertyTypes</div>
+                 </div>
+                 <div class="Home_params__1o4Xr">
+                    <h2>Parameters</h2>
+                    <table>
+                       <thead>
+                          <tr>
+                             <th>Name</th>
+                             <th>Type</th>
+                             <th>In</th>
+                             <th>Description</th>
+                          </tr>
+                       </thead>
+                       <tbody>
+                         <tr>
+                            <td>slug</td>
+                            <td>string</td>
+                            <td>query</td>
+                            <td>describes the property type</td>
+                         </tr>
+                       </tbody>
+                    </table>
+                 </div>
+                 <div>
+                    <h2>Response</h2>
+                    <div class="Home_code__axx2Y">Status: 200 OK</div>
+                    <div class="Home_code__axx2Y">
+                       <pre>
+                         {{propertyTypes}}
+                       </pre>
+                    </div>
+                 </div>
+              </div>
+              <div id="transactions">
+                 <h1>Transactions</h1>
+                 <div class="Home_endpoint__3IV_8 Home_code__axx2Y">
+                    <div class="Home_method__3uimR">GET</div>
+                    <div>/transactions</div>
+                 </div>
+                 <div class="Home_params__1o4Xr">
+                    <h2>Parameters</h2>
+                    <table>
+                       <thead>
+                          <tr>
+                             <th>Name</th>
+                             <th>Type</th>
+                             <th>In</th>
+                             <th>Description</th>
+                          </tr>
+                       </thead>
+                       <tbody>
+                         <tr>
+                            <td>slug</td>
+                            <td>string</td>
+                            <td>query</td>
+                            <td>describes the transaction</td>
+                         </tr>
+                         <tr>
+                            <td>propertyTypes</td>
+                            <td>array of numbers</td>
+                            <td>query</td>
+                            <td>is the list of ids of the property types to which the transaction applies</td>
+                         </tr>
+                       </tbody>
+                    </table>
+                 </div>
+                 <div>
+                    <h2>Response</h2>
+                    <div class="Home_code__axx2Y">Status: 200 OK</div>
+                    <div class="Home_code__axx2Y">
+                       <pre>
+                         {{transactions}}
+                       </pre>
+                    </div>
+                 </div>
+                 <div class="Home_endpoint__3IV_8 Home_code__axx2Y">
+                    <div class="Home_method__3uimR">POST</div>
+                    <div>/transactions</div>
+                 </div>
+                 <div>
+                    <form>
+                      <p>slug  <input type="text" id="slugTransactionCreate" required></p>
+                      <p>Property types <select  id="propertyTypesTransactionCreate" multiple></select></p>
+                      <p> <input type="submit" value="create" v-on:click="postTransactions()"></p>
+                      <p>{{messageCreateTransaction}}</p>
+                    </form>
+                 </div>
+                 <div class="Home_endpoint__3IV_8 Home_code__axx2Y">
+                    <div class="Home_method__3uimR">PUT / DELETE</div>
+                    <div>/transactions</div>
+                 </div>
+                 <div>
+                    <p>Select a transaction: </p>
+                     <select class="form-control" name="transactions" id="slectTransactions" v-on:change="getTransaction()">
+                       <option>Please select a transaction</option>
+                     </select>
+                 </div>
+                 <div>
+                    <form>
+                      <p>slug  <input type="text" id="slugTransaction"></p>
+                      <p>Property types <select  id="propertyTypesTransaction" multiple></select></p>
+                      <p> <input type="submit" value="update"></p>
+                      <p> <input type="submit" value="delete"></p>
+                    </form>
+                 </div>
+              </div>
+              <div id="properties">
+                 <h1>Properties</h1>
+                 <div class="Home_endpoint__3IV_8 Home_code__axx2Y">
+                    <div class="Home_method__3uimR">GET</div>
+                    <div>/properties</div>
+                 </div>
+                 <div class="Home_params__1o4Xr">
+                    <h2>Parameters</h2>
+                    <table>
+                       <thead>
+                          <tr>
+                             <th>Name</th>
+                             <th>Type</th>
+                             <th>In</th>
+                             <th>Description</th>
+                          </tr>
+                       </thead>
+                       <tbody>
+                         <tr>
+                            <td>title</td>
+                            <td>string</td>
+                            <td>query</td>
+                            <td>it describes the property</td>
+                         </tr>
+                         <tr>
+                            <td>image</td>
+                            <td>url</td>
+                            <td>query</td>
+                            <td>The url to see a image of the porperty</td>
+                         </tr>
+                         <tr>
+                            <td>price</td>
+                            <td>number</td>
+                            <td>query</td>
+                            <td>The price of the property</td>
+                         </tr>
+                         <tr>
+                            <td>city</td>
+                            <td>number</td>
+                            <td>query</td>
+                            <td>The id of the city where de property is located.</td>
+                         </tr>
+                         <tr>
+                            <td>baths</td>
+                            <td>number</td>
+                            <td>query</td>
+                            <td>shows the number of bathrooms the property has</td>
+                         </tr>
+                         <tr>
+                            <td>bed</td>
+                            <td>number</td>
+                            <td>query</td>
+                            <td>shows the number of bedrooms the property has</td>
+                         </tr>
+                         <tr>
+                            <td>sqft</td>
+                            <td>number</td>
+                            <td>query</td>
+                            <td>indicates the size of the property in square feet</td>
+                         </tr>
+                         <tr>
+                            <td>category</td>
+                            <td>number</td>
+                            <td>query</td>
+                            <td>Indicates the category to which the property belongs</td>
+                         </tr>
+                       </tbody>
+                    </table>
+                 </div>
+                 <div>
+                    <h2>Response</h2>
+                    <div class="Home_code__axx2Y">Status: 200 OK</div>
+                    <div class="Home_code__axx2Y">
+                       <pre>
+                         {{properties}}
+                       </pre>
+                    </div>
+                 </div>
+              </div>
+               <div id="reviews" >
+                  <h1>Reviews</h1>
+                  <div class="Home_endpoint__3IV_8 Home_code__axx2Y">
+                     <div class="Home_method__3uimR">GET</div>
+                     <div>/reviews</div>
+                  </div>
+                  <div class="Home_params__1o4Xr">
+                     <h2>Parameters</h2>
+                     <table>
+                        <thead>
+                           <tr>
+                              <th>Name</th>
+                              <th>Type</th>
+                              <th>In</th>
+                              <th>Description</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                             <td>feedback</td>
+                             <td>string</td>
+                             <td>query</td>
+                             <td>is the review made by a user to a property</td>
+                          </tr>
+                          <tr>
+                             <td>rating</td>
+                             <td>number</td>
+                             <td>query</td>
+                             <td>is the rating given by the user to a property</td>
+                          </tr>
+                          <tr>
+                             <td>avatar</td>
+                             <td>url</td>
+                             <td>query</td>
+                             <td>The url to see a image of the user who made the review</td>
+                          </tr>
+                          <tr>
+                             <td>property</td>
+                             <td>string</td>
+                             <td>query</td>
+                             <td>is the id of the property that is being reviewed</td>
+                          </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div>
+                     <h2>Response</h2>
+                     <div class="Home_code__axx2Y">Status: <pre>{{reviewsStatus}}</pre></div>
+                     <div class="Home_code__axx2Y">
+                        <pre>
+                          {{ reviews }}
+                        </pre>
+                     </div>
+                  </div>
+               </div>
 
-        </div>
-
-
-      <!-- Script Vue -->
-      <script src="vendor/jquery/functions.js"></script>
+            </div>
+         </main>
+      </div>
+      <script src="vendor/jquery/jquery.js"></script>
+      <script src="vendor/jquery/functionsPrueba.js"></script>
     </body>
 </html>

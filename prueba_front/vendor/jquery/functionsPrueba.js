@@ -15,7 +15,9 @@ var app = new Vue ({
       categoriesStatus: '',
       properties: '',
       propertiesStatus: '',
-      url: 'http://127.0.0.1:8000/'
+      url: 'http://127.0.0.1:8000/',
+      propertyTypesList : [],
+      messageCreateTransaction: ''
   },
   mounted: function(){
     this.onloadReviews();
@@ -52,54 +54,6 @@ var app = new Vue ({
       });
     },
 
-    onloadTransactions: function (){
-      var urltransactions = this.url + 'transactions/';
-      fetch(urltransactions,{
-        method: 'GET',
-        headers:{
-            'Content-Type': 'application/json'
-        }
-      }).then(res => res.json())
-      .catch(error => console.error('Error:', error))
-      .then(data => {
-          this.transactions = data;
-          var $selectTransactions = $('#slectTransactions');
-
-          $.each(data, function(id, slug){
-            $selectTransactions.append(
-              '<option value=' + slug.id + '>' + slug.slug + '</option>'
-            );
-          });
-      });
-    },
-
-    getTransaction: function (){
-      var id = document.getElementById("slectTransactions").value;
-      var urltransactions = this.url + 'transactions/' + id;
-      fetch(urltransactions,{
-        method: 'GET',
-        headers:{
-            'Content-Type': 'application/json'
-        }
-      }).then(res => res.json())
-      .catch(error => console.error('Error:', error))
-      .then(data => {
-        console.log(data);
-          document.getElementById("slugTransaction").value = data["slug"];
-
-          var $selectPropertyTypes = $('#propertyTypesTransaction');
-          $.each(data["propertyTypes"], function(id, slug){
-            $selectPropertyTypes.append(
-              '<option value=' + slug.id + '>' + slug.slug + '</option>'
-            );
-          });
-      });
-    },
-
-    postTransactions: function () {
-
-    },
-
     onloadPropertyTypes: function (){
       var urlpropertyTypes = this.url + 'propertyTypes/';
 
@@ -114,6 +68,92 @@ var app = new Vue ({
           this.propertyTypes = data;
       });
     },
+
+    onloadTransactions: function (){
+      var urltransactions = this.url + 'transactions/';
+      fetch(urltransactions,{
+        method: 'GET',
+        headers:{
+            'Content-Type': 'application/json'
+        }
+      }).then(res => res.json())
+      .catch(error => console.error('Error:', error))
+      .then(data => {
+          this.transactions = data;
+          var $selectTransactions = $('#slectTransactions');
+          var $selectTransactionsCreate = $('#propertyTypesTransactionCreate');
+          var $selectPropertyTypes = $('#propertyTypesTransaction');
+          this.onloadPropertyTypes();
+          $.each(data, function(id, slug){
+            $selectTransactions.append(
+              '<option value=' + slug.id + '>' + slug.slug + '</option>'
+            );
+          });
+
+          $.each(this.propertyTypes, function(id, slug){
+            $selectTransactionsCreate.append(
+              '<option value=' + slug.id + '>' + slug.slug + '</option>'
+            );
+            $selectPropertyTypes.append(
+              '<option id = "propertyType' + slug.id +'"  value=' + slug.id + '>' + slug.slug + '</option>'
+            );
+          });
+
+
+      });
+    },
+
+    getTransaction: function (){
+      var id = document.getElementById("slectTransactions").value;
+      var urltransactions = this.url + 'transactions/' + id;
+      fetch(urltransactions,{
+        method: 'GET',
+        headers:{
+            'Content-Type': 'application/json'
+        }
+      }).then(res => res.json())
+      .catch(error => console.error('Error:', error))
+      .then(data => {
+          document.getElementById("slugTransaction").value = data["slug"];
+
+          var $selectPropertyTypes = $('#propertyTypesTransaction');
+          $.each(data["propertyTypes"], function(id, slug){
+              //document.getElementById("propertyType"+slug.id).selected = true;
+          });
+      });
+    },
+
+    postTransactions: function () {
+      var slug = document.getElementById("slugTransactionCreate").value;
+      var propertyTypes = $('#propertyTypesTransactionCreate').val();
+      var propertyTypesInt = []
+
+      for (propertyType in propertyTypes){
+        propertyTypesInt.push(parseInt(propertyTypes[propertyType]));
+      }
+
+      var urltransactions = this.url + 'transactions/';
+      var data = {
+        slug: slug,
+        propertyTypes: propertyTypesInt
+      }
+
+      fetch(urltransactions, {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers:{
+                'Content-Type': 'application/json'
+            }
+        }).then(res => res.json())
+        .catch(error => console.error('Error:', error))
+        .then(data => {
+          this.messageCreateTransaction = data.message;
+          this.getTransaction();
+        });
+
+    },
+
+
 
     onloadStates: function (){
       var urlstates = this.url + 'states/';
