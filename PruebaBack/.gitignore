@@ -1,0 +1,5 @@
+*.pyc
+db.sqlite3
+PruebaBack/__pycache__/
+api/__pycache__/
+api/migrations/

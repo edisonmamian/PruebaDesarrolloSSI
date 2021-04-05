@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)https://frontend-test-api.vercel.app/#states -->
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta name="viewport" content="width=device-width">
+      <title>GrupoSSI Prueba Coordinador de Desarrollo</title>
+      <meta name="next-head-count" content="3">
+      <link rel="preload" href="./vendor/styles/estilosPrueba.css" as="style">
+      <link rel="stylesheet" href="./vendor/styles/estilosPrueba.css" data-n-p="">
+      <noscript data-n-css=""></noscript>
+      <script src="chrome-extension://mooikfkahbdckldjjndioackbalphokd/assets/prompt.js"></script>
+
+      <!-- Vue -->
+      <script src="./vendor/vue/vue.js"></script>
+   </head>
+   <body>
+      <div id="app">
+         <main class="Home_main__1x8gC">
+            <div class="Home_menu__3wuDZ">
+               <h1>Endpoints</h1>
+               <nav>
+                  <ul>
+                     <li><a href="#states">States</a></li>
+                     <li><a href="#cities">Cities</a></li>
+                     <li><a href="#categories">Categories</a></li>
+                     <li><a href="#propertyTypes">Property types</a></li>
+                     <li><a href="#transactions">Transactions</a></li>
+                     <li><a href="#properties">Properties</a></li>
+                     <li><a href="#reviews">Reviews</a></li>
+                  </ul>
+               </nav>
+            </div>
+            <div class="Home_docs__15Prz">
+              <div id="states">
+                 <h1>States</h1>
+                 <div class="Home_endpoint__3IV_8 Home_code__axx2Y">
+                    <div class="Home_method__3uimR">GET</div>
+                    <div>/states</div>
+                 </div>
+                 <div class="Home_params__1o4Xr">
+                    <h2>Parameters</h2>
+                    <table>
+                       <thead>
+                          <tr>
+                             <th>Name</th>
+                             <th>Type</th>
+                             <th>In</th>
+                             <th>Description</th>
+                          </tr>
+                       </thead>
+                       <tbody>
+                         <tr>
+                            <td>slug</td>
+                            <td>string</td>
+                            <td>query</td>
+                            <td>is the name of the state</td>
+                         </tr>
+                       </tbody>
+                    </table>
+                 </div>
+                 <div>
+                    <h2>Response</h2>
+                    <div class="Home_code__axx2Y">Status: 200 OK</div>
+                    <div class="Home_code__axx2Y">
+                       <pre>
+                         {{states}}
+                       </pre>
+                    </div>
+                 </div>
+              </div>
+              <div id="cities">
+                 <h1>Cities</h1>
+                 <div class="Home_endpoint__3IV_8 Home_code__axx2Y">
+                    <div class="Home_method__3uimR">GET</div>
+                    <div>/cities</div>
+                 </div>
+                 <div class="Home_params__1o4Xr">
+                    <h2>Parameters</h2>
+                    <table>
+                       <thead>
+                          <tr>
+                             <th>Name</th>
+                             <th>Type</th>
+                             <th>In</th>
+                             <th>Description</th>
+                          </tr>
+                       </thead>
+                       <tbody>
+                         <tr>
+                            <td>slug</td>
+                            <td>string</td>
+                            <td>query</td>
+                            <td>is the name of the city</td>
+                         </tr>
+                         <tr>
+                            <td>zip</td>
+                            <td>string</td>
+                            <td>query</td>
+                            <td>is the zip code of the city</td>
+                         </tr>
+                         <tr>
+                            <td>slug</td>
+                            <td>number</td>
+                            <td>query</td>
+                            <td>is the id of the state in which the city is located</td>
+                         </tr>
+                       </tbody>
+                    </table>
+                 </div>
+                 <div>
+                    <h2>Response</h2>
+                    <div class="Home_code__axx2Y">Status: 200 OK</div>
+                    <div class="Home_code__axx2Y">
+                       <pre>
+                         {{cities}}
+                       </pre>
+                    </div>
+                 </div>
+              </div>
+              <div id="categories">
+                 <h1>Categories</h1>
+                 <div class="Home_endpoint__3IV_8 Home_code__axx2Y">
+                    <div class="Home_method__3uimR">GET</div>
+                    <div>/categories</div>
+                 </div>
+                 <div class="Home_params__1o4Xr">
+                    <h2>Parameters</h2>
+                    <table>
+                       <thead>
+                          <tr>
+                             <th>Name</th>
+                             <th>Type</th>
+                             <th>In</th>
+                             <th>Description</th>
+                          </tr>
+                       </thead>
+                       <tbody>
+                         <tr>
+                            <td>slug</td>
+                            <td>string</td>
+                            <td>query</td>
+                            <td>describes the category</td>
+                         </tr>
+                       </tbody>
+                    </table>
+                 </div>
+                 <div>
+                    <h2>Response</h2>
+                    <div class="Home_code__axx2Y">Status: 200 OK</div>
+                    <div class="Home_code__axx2Y">
+                       <pre>
+                         {{categories}}
+                       </pre>
+                    </div>
+                 </div>
+              </div>
+              <div id="propertyTypes">
+                 <h1>Property types</h1>
+                 <div class="Home_endpoint__3IV_8 Home_code__axx2Y">
+                    <div class="Home_method__3uimR">GET</div>
+                    <div>/propertyTypes</div>
+                 </div>
+                 <div class="Home_params__1o4Xr">
+                    <h2>Parameters</h2>
+                    <table>
+                       <thead>
+                          <tr>
+                             <th>Name</th>
+                             <th>Type</th>
+                             <th>In</th>
+                             <th>Description</th>
+                          </tr>
+                       </thead>
+                       <tbody>
+                         <tr>
+                            <td>slug</td>
+                            <td>string</td>
+                            <td>query</td>
+                            <td>describes the property type</td>
+                         </tr>
+                       </tbody>
+                    </table>
+                 </div>
+                 <div>
+                    <h2>Response</h2>
+                    <div class="Home_code__axx2Y">Status: 200 OK</div>
+                    <div class="Home_code__axx2Y">
+                       <pre>
+                         {{propertyTypes}}
+                       </pre>
+                    </div>
+                 </div>
+              </div>
+              <div id="transactions">
+                 <h1>Transactions</h1>
+                 <div class="Home_endpoint__3IV_8 Home_code__axx2Y">
+                    <div class="Home_method__3uimR">GET</div>
+                    <div>/transactions</div>
+                 </div>
+                 <div class="Home_params__1o4Xr">
+                    <h2>Parameters</h2>
+                    <table>
+                       <thead>
+                          <tr>
+                             <th>Name</th>
+                             <th>Type</th>
+                             <th>In</th>
+                             <th>Description</th>
+                          </tr>
+                       </thead>
+                       <tbody>
+                         <tr>
+                            <td>slug</td>
+                            <td>string</td>
+                            <td>query</td>
+                            <td>describes the transaction</td>
+                         </tr>
+                         <tr>
+                            <td>propertyTypes</td>
+                            <td>array of numbers</td>
+                            <td>query</td>
+                            <td>is the list of ids of the property types to which the transaction applies</td>
+                         </tr>
+                       </tbody>
+                    </table>
+                 </div>
+                 <div>
+                    <h2>Response</h2>
+                    <div class="Home_code__axx2Y">Status: 200 OK</div>
+                    <div class="Home_code__axx2Y">
+                       <pre>
+                         {{transactions}}
+                       </pre>
+                    </div>
+                 </div>
+                 <div>
+                    <p>Select a transaction: </p>
+                     <select class="form-control" name="transactions" id="slectTransactions" v-on:change="getTransaction()">
+                       <option>Please select a transaction</option>
+                     </select>
+                 </div>
+                 <div>
+                    <form>
+                      <p>slug  <input type="text" id="slugTransaction"></p>
+                      <p>Property types <select  id="propertyTypesTransaction" multiple></select></p>
+
+                    </form>
+                 </div>
+              </div>
+              <div id="properties">
+                 <h1>Properties</h1>
+                 <div class="Home_endpoint__3IV_8 Home_code__axx2Y">
+                    <div class="Home_method__3uimR">GET</div>
+                    <div>/properties</div>
+                 </div>
+                 <div class="Home_params__1o4Xr">
+                    <h2>Parameters</h2>
+                    <table>
+                       <thead>
+                          <tr>
+                             <th>Name</th>
+                             <th>Type</th>
+                             <th>In</th>
+                             <th>Description</th>
+                          </tr>
+                       </thead>
+                       <tbody>
+                         <tr>
+                            <td>title</td>
+                            <td>string</td>
+                            <td>query</td>
+                            <td>it describes the property</td>
+                         </tr>
+                         <tr>
+                            <td>image</td>
+                            <td>url</td>
+                            <td>query</td>
+                            <td>The url to see a image of the porperty</td>
+                         </tr>
+                         <tr>
+                            <td>price</td>
+                            <td>number</td>
+                            <td>query</td>
+                            <td>The price of the property</td>
+                         </tr>
+                         <tr>
+                            <td>city</td>
+                            <td>number</td>
+                            <td>query</td>
+                            <td>The id of the city where de property is located.</td>
+                         </tr>
+                         <tr>
+                            <td>baths</td>
+                            <td>number</td>
+                            <td>query</td>
+                            <td>shows the number of bathrooms the property has</td>
+                         </tr>
+                         <tr>
+                            <td>bed</td>
+                            <td>number</td>
+                            <td>query</td>
+                            <td>shows the number of bedrooms the property has</td>
+                         </tr>
+                         <tr>
+                            <td>sqft</td>
+                            <td>number</td>
+                            <td>query</td>
+                            <td>indicates the size of the property in square feet</td>
+                         </tr>
+                         <tr>
+                            <td>category</td>
+                            <td>number</td>
+                            <td>query</td>
+                            <td>Indicates the category to which the property belongs</td>
+                         </tr>
+                       </tbody>
+                    </table>
+                 </div>
+                 <div>
+                    <h2>Response</h2>
+                    <div class="Home_code__axx2Y">Status: 200 OK</div>
+                    <div class="Home_code__axx2Y">
+                       <pre>
+                         {{properties}}
+                       </pre>
+                    </div>
+                 </div>
+              </div>
+               <div id="reviews" >
+                  <h1>Reviews</h1>
+                  <div class="Home_endpoint__3IV_8 Home_code__axx2Y">
+                     <div class="Home_method__3uimR">GET</div>
+                     <div>/reviews</div>
+                  </div>
+                  <div class="Home_params__1o4Xr">
+                     <h2>Parameters</h2>
+                     <table>
+                        <thead>
+                           <tr>
+                              <th>Name</th>
+                              <th>Type</th>
+                              <th>In</th>
+                              <th>Description</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                             <td>feedback</td>
+                             <td>string</td>
+                             <td>query</td>
+                             <td>is the review made by a user to a property</td>
+                          </tr>
+                          <tr>
+                             <td>rating</td>
+                             <td>number</td>
+                             <td>query</td>
+                             <td>is the rating given by the user to a property</td>
+                          </tr>
+                          <tr>
+                             <td>avatar</td>
+                             <td>url</td>
+                             <td>query</td>
+                             <td>The url to see a image of the user who made the review</td>
+                          </tr>
+                          <tr>
+                             <td>property</td>
+                             <td>string</td>
+                             <td>query</td>
+                             <td>is the id of the property that is being reviewed</td>
+                          </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                  <div>
+                     <h2>Response</h2>
+                     <div class="Home_code__axx2Y">Status: <pre>{{reviewsStatus}}</pre></div>
+                     <div class="Home_code__axx2Y">
+                        <pre>
+                          {{ reviews }}
+                        </pre>
+                     </div>
+                  </div>
+               </div>
+
+            </div>
+         </main>
+      </div>
+      <script src="vendor/jquery/jquery.js"></script>
+      <script src="vendor/jquery/functionsPrueba.js"></script>
+    </body>
+</html>

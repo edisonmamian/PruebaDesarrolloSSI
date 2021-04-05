@@ -1,0 +1,141 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        
+        <title>Rock Paper Scissors Lizard Spock</title>
+        <!-- Imports -->
+
+        <!-- Bootstrap core CSS -->
+        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        
+        <!-- Style -->
+        <link href="vendor/styles/styleGame.css" rel="stylesheet">
+        
+        <!-- Fontawesome -->
+        <script src="https://kit.fontawesome.com/eb7d40bb21.js"></script>
+          
+        <!-- Vue -->
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    </head>
+    <body>
+        
+        <div id="app">
+    
+            <!-- Navigation -->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+                <div class="container">
+                <a class="navbar-brand" href="#">Rock Paper Scissors Lizard Spock</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" v-on:click="endGame()">Reset Game</a>
+                    </li>
+                    </ul>
+                </div>
+                </div>
+            </nav>
+        
+            <!-- Page Content -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm">
+                        <h3>Points</h3> 
+                        <br>
+                    </div>
+                </div>
+                <!-- Game's Counter -->
+                <div class="row">
+                    <div class="col-sm">
+                    <h5>Computer: {{pointsComputer}}</h5> 
+                    </div>
+                    <div class="col-sm">
+                    <h5>Player: {{pointsPlayer}}</h5>
+                    <br>
+                    </div>
+                </div>
+                <!-- Computer's options -->
+                <div class="row justify-content-center">
+                    <div class="col-3">
+                      <h5>Computer</h5> 
+                      <i v-bind:class="iconComputer"></i>
+                      <p class="icon-option-name">
+                          <span>      
+                            {{ nameIconComputer }}
+                          </span>
+                      </p>
+                      <br>
+                    </div>
+                    <div class="col-2">
+                        <h5>Winner:</h5> 
+                        <p class="icon-option-name">
+                            <span>      
+                              {{ winner }}
+                            </span>
+                        </p>
+                        <br>
+                      </div>
+                </div>
+                <!-- Player's Option -->
+                <div class="row">
+                    <div class="col-sm">
+                      <h1>Choose:</h1>
+                      </div>
+                </div>
+                <div class="row">
+                <div class="col-sm">
+                    <a v-on:click="turn(options.rock)">
+                    <i class="icon-option far fa-hand-rock"></i>
+                    <p class="icon-option-name">
+                        <span>Rock</span>
+                    </p>
+                    </a>
+                    </div>
+                    <div class="col-sm">
+                    <a v-on:click="turn(options.paper)">
+                        <i class="icon-option far fa-hand-paper"></i>
+                        <p class="icon-option-name">
+                            <span>Paper</span>
+                        </p>
+                    </a>
+                    </div>
+                    <div class="col-sm">
+                    <a v-on:click="turn(options.scissors)">
+                        <i class="icon-option far fa-hand-scissors"></i>
+                        <p class="icon-option-name">
+                            <span>Scissors</span>
+                        </p>
+                    </a>
+                    </div>
+                    <div class="col-sm">
+                    <a v-on:click="turn(options.lizard)">
+                        <i class="icon-option far fa-hand-lizard"></i>
+                        <p class="icon-option-name">
+                            <span>Lizard</span>
+                        </p>
+                    </a>
+                    </div>
+                    <div class="col-sm">
+                    <a v-on:click="turn(options.spock)">
+                        <i class="icon-option far fa-hand-spock"></i>
+                        <p class="icon-option-name">
+                            <span>Spock</span>
+                        </p>
+                    </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+      <!-- Script Vue -->
+      <script src="vendor/jquery/functions.js"></script>
+    </body>
+</html>

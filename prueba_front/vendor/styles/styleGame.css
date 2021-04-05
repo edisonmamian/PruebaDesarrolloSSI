@@ -1,0 +1,26 @@
+.icon-option-name {
+  font-size: 20px !important;
+  color: #42B3FF;
+}
+.icon-option {
+  font-size: 60px !important;
+  color: #42B3FF;
+  border-radius: 100px;
+  border: 6px solid #42B3FF;
+  padding: 20px;
+  cursor: pointer;
+}
+.icon-option:hover {
+  font-size: 60px !important;
+  color: #215A80;
+  border-radius: 100px;
+  border: 6px solid #215A80;
+}
+.icon-option-selected {
+  font-size: 60px !important;
+  color: #215A80;
+  border-radius: 100px;
+  border: 6px solid #215A80;
+  cursor: pointer;
+  padding: 20px;
+}
