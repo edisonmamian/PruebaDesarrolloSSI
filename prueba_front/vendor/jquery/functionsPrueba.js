@@ -176,6 +176,31 @@ var app = new Vue ({
       })
     },
 
+    putTransaction: function(){
+      var id = document.getElementById("slectTransactions").value;
+      var urltransactions = this.url + 'transactions/' + id;
+
+      var slug = document.getElementById("slugTransaction").value;
+      var propertyTypes = $('#propertyTypesTransaction').val();
+      var propertyTypesInt = []
+
+      for (propertyType in propertyTypes){
+        propertyTypesInt.push(parseInt(propertyTypes[propertyType]));
+      }
+
+      fetch(urltransactions,{
+        method: 'DELETE',
+        headers:{
+            'Content-Type': 'application/json'
+        }
+      }).then(res => res.json())
+      .catch(error => console.error('Error:', error))
+      .then(data=>{
+        this.messageTransaction = data.message;
+        this.onloadTransactions();
+      })
+    }
+
     onloadStates: function (){
       var urlstates = this.url + 'states/';
 
