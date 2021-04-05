@@ -260,7 +260,7 @@
                     <form>
                       <p>slug  <input type="text" id="slugTransaction"></p>
                       <p>Property types <select  id="propertyTypesTransaction" multiple></select></p>
-                      <p> <input type="submit" value="update"></p>
+                      <p> <input type="submit" value="update" v-on:click="putTransaction()"></p>
                       <p> <input type="submit" value="delete" v-on:click="deleteTransaction()"></p>
                       <p>{{messageTransaction}}</p>
                     </form>
@@ -354,10 +354,13 @@
                       <p>slug  <input type="text" id="slugPropertyCreate" required></p>
                       <p>image  <input type="text" id="imagePropertyCreate" required></p>
                       <p>price  <input type="text" id="pricePropertyCreate" required></p>
-                      <p>city  <input type="text" id="cityPropertyCreate" required></p>
-                      <p>Property types <select  id="propertyPropertyCreate" multiple></select></p>
-                      <p> <input type="submit" value="create" v-on:click="postTransactions()"></p>
-                      <p>{{messageCreateTransaction}}</p>
+                      <p>city<select class="form-control" name="city" id="cityPropertyCreate"></p>
+                      <p>baths <input type="text" id="bathsPropertyCreate" required></p>
+                      <p>beds <input type="text" id="bedsPropertyCreate" required></p>
+                      <p>sqft <input type="text" id="sqftPropertyCreate" required></p>
+                      <p>category<select class="form-control" name="category" id="categoryPropertyCreate"></p>
+                      <p> <input type="submit" value="create" v-on:click="postProperties()"></p>
+                      <p>{{messageCreateProperty}}</p>
                     </form>
                  </div>
               </div>

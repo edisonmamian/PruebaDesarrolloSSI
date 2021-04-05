@@ -18,15 +18,13 @@ var app = new Vue ({
       url: 'http://127.0.0.1:8000/',
       propertyTypesList : [],
       messageCreateTransaction: '',
-      messageTransaction: ''
+      messageTransaction: '',
+      messageCreateProperty: ''
   },
   mounted: function(){
     this.onloadReviews();
     this.onloadTransactions();
-    this.onloadPropertyTypes();
     this.onloadStates();
-    this.onloadCities();
-    this.onloadCategories();
     this.onloadProperties();
   },
   methods: {
@@ -199,7 +197,7 @@ var app = new Vue ({
         this.messageTransaction = data.message;
         this.onloadTransactions();
       })
-    }
+    },
 
     onloadStates: function (){
       var urlstates = this.url + 'states/';
@@ -258,7 +256,68 @@ var app = new Vue ({
       .catch(error => console.error('Error:', error))
       .then(data => {
           this.properties = data;
+          this.onloadCities();
+          this.onloadCategories();
+          var $selectCity = $('#cityPropertyCreate');
+          var $selectCategory = $('#categoryPropertyCreate');
+
+          $("#cityPropertyCreate").empty();
+          $("#categoryPropertyCreate").empty();
+
+          $.each(this.cities, function(id, slug){
+            $selectCity.append(
+              '<option value=' + slug.id + '>' + slug.slug + '</option>'
+            );
+          });
+
+          $.each(this.properties, function(id, slug){
+            $selectCategory.append(
+              '<option value=' + slug.id + '>' + slug.slug + '</option>'
+            );
+          });
       });
     },
+
+    postProperties: function(){
+      var slug = document.getElementById("slugTransactionCreate").value;
+      var image = document.getElementById("imagePropertyCreate").value;
+      var price = document.getElementById("pricePropertyCreate").value;
+      var city = $('#cityPropertyCreate').val();
+      var baths = document.getElementById("bathsPropertyCreate").value;
+      var beds = document.getElementById("bedsPropertyCreate").value;
+      var sqrft = document.getElementById("sqftPropertyCreate").value;
+      var category = $('#categoryPropertyCreate').val();
+      var categoryInt = [];
+
+      var city_int = parseInt(city);
+
+      for (cat in category){
+        categoryInt.push(parseInt(category[cat]));
+      };
+      var urlproperties = this.url + 'properties/';
+      var data = {
+        slug: slug,
+        image: propertyTypesInt,
+        price: price,
+        city: city_int,
+        baths: baths,
+        beds: beds,
+        sqrft: sqrft,
+        category: categoryInt
+      }
+
+      fetch(urlproperties, {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers:{
+                'Content-Type': 'application/json'
+            }
+        }).then(res => res.json())
+        .catch(error => console.error('Error:', error))
+        .then(data => {
+          this.messageCreateProperty = data.message;
+          this.onloadTransactions();
+        });
+    }
   }
 });
